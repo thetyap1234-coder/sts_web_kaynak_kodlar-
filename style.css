@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+:root {
+  --p: #2563eb;
+  --bg: #f8fafc;
+  --c: #fff;
+  --t: #0f172a;
+  --m: #64748b;
+  --b: #e2e8f0;
+  --s: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg: #020617;
+  --c: #0f172a;
+  --t: #fff;
+  --m: #94a3b8;
+  --b: #1e293b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--t);
+  transition: 0.3s;
+}
+
+/* ===== NAV ===== */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 8%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--b);
+}
+
+body.dark .navbar {
+  background: rgba(2, 6, 23, 0.7);
+}
+
+.logo {
+  font-weight: 800;
+  color: var(--p);
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--t);
+  font-weight: 500;
+}
+
+.theme-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: var(--p);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  padding: 130px 8% 60px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
+.hero p {
+  color: var(--m);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.primary-btn {
+  background: var(--p);
+  color: #fff;
+}
+.secondary-btn {
+  border: 1px solid var(--b);
+  background: transparent;
+}
+
+/* ===== CARDS (GENEL) ===== */
+
+.card,
+.stat-card,
+.feature-card,
+.dashboard-card,
+.product-card {
+  background: var(--c);
+  box-shadow: var(--s);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* ===== STATS ===== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 0 8% 60px;
+}
+
+.stat-card {
+  text-align: center;
+}
+.stat-card h2 {
+  color: var(--p);
+}
+
+/* ===== FEATURES ===== */
+
+.features {
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* ===== DASHBOARD ===== */
+
+.dashboard {
+  padding: 60px 8%;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* ===== PRODUCTS ===== */
+
+.products-section {
+  padding: 50px 8%;
+}
+
+.product-top {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-top input,
+.product-top select {
+  padding: 10px;
+  border: 1px solid var(--b);
+  border-radius: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 15px;
+}
+
+/* ===== BUTTONS ===== */
+
+.edit-btn,
+.delete-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.edit-btn {
+  background: #f59e0b;
+}
+.delete-btn {
+  background: #ef4444;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: var(--c);
+  padding: 20px;
+  border-radius: 14px;
+  width: 380px;
+}
+
+.modal-content input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: 1px solid var(--b);
+  border-radius: 8px;
+}
+
+/* ===== TOAST ===== */
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #22c55e;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--b);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+}
